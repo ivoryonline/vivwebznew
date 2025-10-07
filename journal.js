@@ -1,7 +1,6 @@
 // ==================== CONFIGURATION ====================
 const customEmojis = {
-    sus: 'https://cdn.discordapp.com/emojis/1423774162178019399.webp',
-    snow: 'https://cdn.discordapp.com/attachments/1229074935356325929/1424169353867297050/67XuK9e.png?ex=68e2f891&is=68e1a711&hm=5831efef7beadeb63053c3cb00d597fa59a405dfe72a5f77c4ab3a9e285ca70f&'
+    sus: 'https://assets.vivwebz.net/vivwebz/sus.webp'
 };
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -65,7 +64,7 @@ const accumulation = {};
 let meltCounter = 0;
 
 const snowflakeImg = new Image();
-snowflakeImg.src = 'https://cdn.discordapp.com/attachments/1229074935356325929/1424169353867297050/67XuK9e.png?ex=68e2f891&is=68e1a711&hm=5831efef7beadeb63053c3cb00d597fa59a405dfe72a5f77c4ab3a9e285ca70f&';
+snowflakeImg.src = 'https://assets.vivwebz.net/vivwebz/snowfalkees.png';
 
 class Snowflake {
     constructor() {
@@ -257,7 +256,7 @@ function renderTextInline(rawText, entryId) {
             const audioUrl = parts && parts[1] ? parts[1].trim() : '';
             const coverUrl = parts && parts[2] ? parts[2].trim() : '';
             const diskId = `${entryId}-m${musicIndex++}`;
-            const cover = coverUrl || 'https://cdn.discordapp.com/attachments/1229074935356325929/1424159891911610460/bqJMpJi.png?ex=68e2efc1&is=68e19e41&hm=991554d3c5015d2be87812a8558086e876e4993c8fc58bbd8982aac164e6c6b3&';
+            const cover = coverUrl || 'https://assets.vivwebz.net/vivwebz/vinyl.png';
             result += `<img src="${cover}" class="music-player" id="music-player-${diskId}" data-entry-id="${entryId}" data-audio-url="${audioUrl}" onclick="toggleMusicInline('${diskId}', this)">`;
         } else if (emojiName) {
             const name = emojiName.toLowerCase();
