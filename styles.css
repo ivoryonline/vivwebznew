@@ -1,0 +1,610 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #2a2a2a url('https://www.transparenttextures.com/patterns/stardust.png');
+    font-family: "MS Sans Serif 1", 'Trebuchet MS', Arial, sans-serif;
+    font-size: 12px;
+    color: #1a1a1a;
+    padding: 40px 20px;
+    min-height: 100vh;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.page-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.corner-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 40px;
+    height: 70px;
+    cursor: pointer;
+    animation: floatCorner 3s ease-in-out infinite;
+}
+
+@keyframes floatCorner {
+    0%, 100% { 
+        transform: translate(-50%, 50%) translateY(0px); 
+    }
+    50% { 
+        transform: translate(-50%, 50%) translateY(-8px); 
+    }
+}
+
+@keyframes floatCornerHover {
+    0%, 100% { 
+        transform: translate(-50%, 50%) translateY(0px) scale(1.1) rotate(5deg); 
+    }
+    50% { 
+        transform: translate(-50%, 50%) translateY(-8px) scale(1.1) rotate(5deg); 
+    }
+}
+
+.header-image-container {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.header-image {
+    max-width: 600px;
+    height: auto;
+    filter: drop-shadow(3px 3px 0px #000);
+    animation: slideDown 0.6s ease-out;
+    transition: transform 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+}
+
+.header-image:hover {
+    transform: scale(1.05) rotate(-1deg);
+    filter: drop-shadow(5px 5px 0px #000);
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.container {
+    background: #f5f5dc;
+    border: 4px solid #3a3a3a;
+    box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+    position: relative;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.main-content {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background: #e8e8d0;
+    border-right: 3px solid #3a3a3a;
+    padding: 20px;
+}
+
+.profile-pic {
+    width: 200px;
+    height: 200px;
+    border: 4px solid #3a3a3a;
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+    display: block;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05) rotate(-2deg);
+}
+
+.username {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 20px;
+    text-align: center;
+    background: #d4d4bc;
+    padding: 10px;
+    border: 2px solid #3a3a3a;
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease-out 0.2s both;
+    cursor: pointer;
+}
+
+.username:hover {
+    transform: translateY(-3px);
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
+    background: #e0e0c8;
+}
+
+@keyframes fadeInUp {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+.username i {
+    margin-right: 5px;
+    color: #8b7355;
+}
+
+.calendar-widget {
+    background: #fff;
+    border: 3px solid #3a3a3a;
+    padding: 15px;
+    margin-top: 20px;
+    animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    color: #1a1a1a;
+    background: #d4d4bc;
+    padding: 8px;
+    border: 2px solid #3a3a3a;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.calendar-header:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
+    background: #e0e0c8;
+}
+
+.calendar-header i {
+    margin-right: 8px;
+    color: #8b7355;
+    transition: transform 0.3s ease;
+}
+
+.calendar-header:hover i {
+    transform: rotate(360deg);
+}
+
+.calendar-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    background: #e8e8d0;
+    border: 2px solid #3a3a3a;
+}
+
+.calendar-controls button {
+    background: #d4d4bc;
+    border: 2px solid #3a3a3a;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.calendar-controls button:hover {
+    background: #c4c4ac;
+    transform: translateY(-2px);
+}
+
+.calendar-controls button:active {
+    transform: translateY(0);
+}
+
+.calendar-controls button i {
+    color: #8b7355;
+}
+
+.calendar-month-year {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.calendar-weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: 5px;
+}
+
+.calendar-weekday {
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+    padding: 5px 2px;
+    background: #d4d4bc;
+    border: 1px solid #3a3a3a;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    background: #f5f5dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 11px;
+    border: 1px solid #3a3a3a;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.calendar-day:hover {
+    background: #e8e8d0;
+    transform: scale(1.15);
+    z-index: 5;
+}
+
+.calendar-day.has-entry {
+    background: #8b7355;
+    color: #fff;
+    font-weight: bold;
+}
+
+.calendar-day.has-entry:hover {
+    background: #6d5a44;
+}
+
+.calendar-day.other-month {
+    color: #999;
+    background: #e8e8d0;
+}
+
+.calendar-day.today {
+    border: 2px solid #ff6347;
+    font-weight: bold;
+}
+
+.tooltip {
+    position: absolute;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 11px;
+    pointer-events: none;
+    z-index: 1000;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 150ms ease, transform 150ms ease;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-5px) scale(0.98);
+    border: 2px solid #3a3a3a;
+}
+
+.calendar-day:hover .tooltip {
+    opacity: 1;
+}
+
+.entry-post-number:hover .tooltip {
+    opacity: 1;
+}
+
+.entry-post-number .tooltip {
+    bottom: calc(100% + 6px);
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(0) scale(0.98);
+}
+.entry-post-number:hover .tooltip {
+    transform: translateX(-50%) translateY(-4px) scale(1);
+}
+
+.emoji-wrapper {
+    position: relative;
+    display: inline-block;
+}
+.emoji-wrapper .tooltip {
+    bottom: calc(100% + 4px);
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(0) scale(0.98);
+    padding: 4px 6px;
+}
+.emoji-wrapper:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-3px) scale(1);
+}
+
+.season-indicator {
+    text-align: center;
+    margin-top: 10px;
+    padding: 5px;
+    background: #d4d4bc;
+    border: 2px solid #3a3a3a;
+    font-size: 11px;
+    font-style: italic;
+}
+
+.season-indicator i {
+    margin-right: 5px;
+    color: #8b7355;
+}
+
+.entries {
+    flex: 1;
+    padding: 25px;
+    background: #f5f5dc;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+    padding: 15px;
+    background: #e8e8d0;
+    border: 3px solid #3a3a3a;
+    animation: fadeInUp 0.5s ease-out 0.3s both;
+}
+
+.pagination button {
+    background: #d4d4bc;
+    border: 2px solid #3a3a3a;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.pagination button:hover:not(:disabled) {
+    background: #c4c4ac;
+    transform: translateY(-2px);
+}
+
+.pagination button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.pagination button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    font-weight: bold;
+    padding: 8px 15px;
+    background: #8b7355;
+    color: #fff;
+    border: 2px solid #3a3a3a;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.pagination span:hover {
+    transform: scale(1.05);
+    background: #9b8365;
+}
+
+.entry {
+    background: #fff;
+    border: 3px solid #3a3a3a;
+    margin-bottom: 25px;
+    padding: 0;
+    box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.entries-container-wrapper {
+    position: relative;
+}
+
+.entry.page-exit {
+    animation: pageExit 0.25s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+@keyframes pageExit {
+    to {
+        opacity: 0;
+        transform: translateX(-40px) scale(0.95);
+    }
+}
+
+.entry.page-enter {
+    animation: pageEnter 0.35s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@keyframes pageEnter {
+    from { 
+        opacity: 0; 
+        transform: translateX(40px) scale(0.95);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateX(0) scale(1);
+    }
+}
+
+.entry-header {
+    background: #d4d4bc;
+    padding: 12px 15px;
+    border-bottom: 3px solid #3a3a3a;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.entry-header-left {
+    flex: 1;
+}
+
+.entry-title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.entry-title:hover {
+    transform: translateX(5px);
+    color: #3a3a3a;
+}
+
+.entry-title i {
+    margin-right: 5px;
+    color: #8b7355;
+    transition: transform 0.3s ease;
+}
+
+.entry-title:hover i {
+    transform: rotate(360deg);
+}
+
+.entry-date {
+    font-size: 11px;
+    color: #555;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.entry-date:hover {
+    transform: translateX(5px);
+    color: #333;
+}
+
+.entry-date i {
+    margin-right: 5px;
+    color: #8b7355;
+    transition: transform 0.3s ease;
+}
+
+.entry-date:hover i {
+    transform: rotate(360deg);
+}
+
+.entry-post-number {
+    background: #8b7355;
+    color: #fff;
+    padding: 5px 10px;
+    border: 2px solid #3a3a3a;
+    font-weight: bold;
+    font-size: 11px;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.entry-post-number:hover {
+    transform: scale(1.1) rotate(-3deg);
+    background: #9b8365;
+    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+}
+
+.entry-post-number i {
+    margin-right: 5px;
+}
+
+.entry-body {
+    padding: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.music-player {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    flex-shrink: 0;
+    object-fit: cover;
+    transition: filter 0.3s ease;
+    will-change: transform;
+}
+
+.music-player:hover {
+    filter: brightness(1.1);
+}
+
+.entry-content {
+    flex: 1;
+}
+
+.entry-text {
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #1a1a1a;
+    -webkit-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+.entry-image {
+    max-width: 100%;
+    border: 3px solid #3a3a3a;
+    margin-top: 15px;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.entry-image:hover {
+    transform: scale(1.02);
+}
+
+.entry-inline-image {
+    max-width: 60%;
+    height: auto;
+    border: 3px solid #3a3a3a;
+    margin: 8px 0;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.entry-inline-image:hover {
+    transform: scale(1.02);
+}
+
+.custom-emoji {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    transition: transform 0.2s ease;
+}
+
+.custom-emoji:hover {
+    transform: scale(1.3) rotate(10deg);
+}
+
+.fa-custom {
+    color: #8b7355;
+    transition: transform 0.2s ease;
+}
+
+.fa-custom:hover {
+    transform: scale(1.2) rotate(5deg);
+}

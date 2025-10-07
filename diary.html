@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://db.onlinewebfonts.com/c/a65eadc3de4c26265833b1b891033c5f?family=MS+Sans+Serif+1" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <canvas id="snowCanvas"></canvas>
+    <div class="page-wrapper">
+        <div class="header-image-container">
+            <img src="https://cdn.discordapp.com/attachments/1229074935356325929/1424159359784718387/V6pAeAD.gif?ex=68e2ef42&is=68e19dc2&hm=4de94b6086ff554181560b9a68b146b7dd95870eb386f4fb996c22033bd9b241&" alt="Header" class="header-image">
+        </div>
+
+        <div class="container">
+            <div class="main-content">
+                <div class="sidebar">
+                    <img src="https://cdn.discordapp.com/avatars/213654146476277760/bbb95857b6321ea8ed85f4adc09b2eda.png?size=1024" alt="Profile" class="profile-pic" id="profilePic">
+                    <div class="username"><i class="fas fa-user"></i> living ♪</div>
+                    
+                    <div class="calendar-widget">
+                        <div class="calendar-header"><i class="fas fa-calendar-alt"></i> CALENDAR</div>
+                        <div class="calendar-controls">
+                            <button onclick="changeMonth(-1)"><i class="fas fa-chevron-left"></i></button>
+                            <span class="calendar-month-year" id="monthYear"></span>
+                            <button onclick="changeMonth(1)"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <div class="calendar-weekday">Su</div>
+                            <div class="calendar-weekday">Mo</div>
+                            <div class="calendar-weekday">Tu</div>
+                            <div class="calendar-weekday">We</div>
+                            <div class="calendar-weekday">Th</div>
+                            <div class="calendar-weekday">Fr</div>
+                            <div class="calendar-weekday">Sa</div>
+                        </div>
+                        <div class="calendar-days" id="calendarDays"></div>
+                        <div class="season-indicator" id="seasonIndicator"></div>
+                    </div>
+                </div>
+
+                <div class="entries">
+                    <div id="entriesContainer"></div>
+                    <div class="pagination">
+                        <button onclick="changePage(-1)" id="prevPage"><i class="fas fa-chevron-left"></i> Previous</button>
+                        <span id="pageInfo"></span>
+                        <button onclick="changePage(1)" id="nextPage">Next <i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="https://cdn.discordapp.com/attachments/1229074935356325929/1424160627529744464/06r8dJT.png?ex=68e2f071&is=68e19ef1&hm=3a9a1538f87b2f64908f591276a3767a60b7dfdf900a4195d6438fc9a3ef6b28&" alt="Corner" class="corner-image">
+    </div>
+
+    <script>
+        // ==================== ENTRY DATA ====================
+        const entries = [
+            {
+                id: 1,
+                title: 'First Entry!',
+                date: '2025-10-04',
+                text: `if the usa is the strongest military in the world, how come they don't have the most deadly weapon? :sus: [img https://media.discordapp.net/attachments/1405964661626765413/1423714946377580575/IMG_9139.jpg?ex=68e2a2de&is=68e1515e&hm=f451751e2462b215e1c4471c27718b7cbb3debb06f5cda5a7c3c51a472402bf5&=&format=webp&width=642&height=856] here's a tune [music https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3 https://cdn.discordapp.com/attachments/1229074935356325929/1424159891911610460/bqJMpJi.png] and another [music https://assets.vivwebz.net/DEAD_MONEY!.mp3]`,
+            }
+        ];
+    </script>
+    <script src="journal.js"></script>
+</body>
+</html>
