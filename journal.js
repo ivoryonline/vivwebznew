@@ -241,15 +241,28 @@ function escapeHtml(value) {
 }
 
 function renderTextInline(rawText, entryId) {
-    const tokenRegex = /(\[img\s+[^\]]+\])|(\[music\s+[^\]]+\])|:([a-z0-9_]+):/gi;
+    const tokenRegex = /(\[video\s+[^\]]+\])|(\[img\s+[^\]]+\])|(\[music\s+[^\]]+\])|:([a-z0-9_]+):/gi;
     let result = '';
     let last = 0;
     let musicIndex = 0;
     let m;
     while ((m = tokenRegex.exec(rawText)) !== null) {
         result += escapeHtml(rawText.slice(last, m.index));
-        const [full, imgTok, musicTok, emojiName] = m;
-        if (imgTok) {
+        const [full, videoTok, imgTok, musicTok, emojiName] = m;
+        if (videoTok) {
+            const parts = /\[video\s+([^\]\s]+)(?:\s+logo:([^\]\s]+))?(?:\s+poster:([^\]\s]+))?\]/i.exec(videoTok);
+            const videoUrl = parts && parts[1] ? parts[1].trim() : '';
+            const logoUrl = parts && parts[2] ? parts[2].trim() : '';
+            const posterUrl = parts && parts[3] ? parts[3].trim() : '';
+            
+            let videoHTML = '<custom-video-player';
+            if (videoUrl) videoHTML += ` src="${videoUrl}"`;
+            if (logoUrl) videoHTML += ` logo="${logoUrl}"`;
+            if (posterUrl) videoHTML += ` poster="${posterUrl}"`;
+            videoHTML += '></custom-video-player>';
+            
+            result += videoHTML;
+        } else if (imgTok) {
             const urlMatch = /\[img\s+([^\]]+)\]/i.exec(imgTok);
             const url = urlMatch ? urlMatch[1].trim() : '';
             const safeUrl = url;
@@ -273,6 +286,10 @@ function renderTextInline(rawText, entryId) {
         last = m.index + full.length;
     }
     result += escapeHtml(rawText.slice(last));
+    
+    // Convert line breaks to <br> tags
+    result = result.replace(/\n/g, '<br>');
+    
     return result;
 }
 
@@ -589,4 +606,3 @@ function highlightEntry(entryId) {
 renderEntries();
 renderCalendar();
 animateSnow();
-
