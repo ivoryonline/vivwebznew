@@ -3,7 +3,7 @@ const customEmojis = {
     sus: 'https://assets.vivwebz.net/vivwebz/sus.webp',
     pumpkin_cat: 'https://assets.vivwebz.net/vivwebz/pumpkin-cat.png',
     halloween_bat: 'https://assets.vivwebz.net/vivwebz/halloween-bat.gif',
-    ghost_stars: 'https://assets.vivwebz.net/vivwebz/ghost-stars.gif',
+    ghost_stars: 'https://assets.vivwebz.net/vivwebz/ghost-stars.gif'
 };
 
 const monthNames = ["January", "February", "March", "April", "May", "June",
@@ -589,3 +589,4 @@ function highlightEntry(entryId) {
 renderEntries();
 renderCalendar();
 animateSnow();
+
