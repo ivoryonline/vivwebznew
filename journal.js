@@ -289,28 +289,34 @@ function initMusicPlayer(playerKey) {
 
 function animateRotation(playerKey, element) {
     const player = musicPlayers[playerKey];
-    
+
+    const now = performance.now();
+    if (!player.lastTime) player.lastTime = now;
+    const deltaTime = (now - player.lastTime) / 4.167; // Normalize to 240fps
+    player.lastTime = now;
+
     const velocityDiff = player.targetVelocity - player.velocity;
-    player.velocity += velocityDiff * 0.02;
-    
-    player.rotation += player.velocity;
-    
+    player.velocity += velocityDiff * 0.02 * deltaTime;
+
+    player.rotation += player.velocity * deltaTime;
+
     element.style.transform = `rotate(${player.rotation}deg)`;
-    
+
     if (currentAudio && currentMusicPlayer === element) {
         const playbackRate = 0.1 + (player.velocity / 8) * 0.9;
         currentAudio.playbackRate = Math.max(0.1, Math.min(1.0, playbackRate));
-        
+
         const volumeFactor = Math.min(1.0, player.velocity / 4);
         currentAudio.volume = Math.max(0, volumeFactor);
     }
-    
+
     if (Math.abs(velocityDiff) > 0.005 || Math.abs(player.velocity) > 0.005) {
         player.animationFrame = requestAnimationFrame(() => animateRotation(playerKey, element));
     } else {
         player.animating = false;
         player.velocity = player.targetVelocity;
-        
+        player.lastTime = null;
+
         if (currentAudio && currentMusicPlayer === element) {
             if (player.targetVelocity > 0) {
                 currentAudio.playbackRate = 1.0;
