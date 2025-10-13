@@ -42,8 +42,18 @@
                         <div class="calendar-days" id="calendarDays"></div>
                         <div class="season-indicator" id="seasonIndicator"></div>
                     </div>
+                        <div class="nav-menu">
+                        <div class="nav-header"><i class="fas fa-bars"></i> NAVIGATION</div>
+                        <button class="nav-button" onclick="window.location.href='index.html'">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </button>
+                        <button class="nav-button" onclick="window.location.href='music-gallery.html'">
+                            <i class="fas fa-music"></i>
+                            <span>Music</span>
+                        </button>
+                    </div>
                 </div>
-
                 <div class="entries">
                     <div id="entriesContainer"></div>
                     <div class="pagination">
@@ -61,6 +71,24 @@
     <script>
         // ==================== ENTRY DATA ====================
         const entries = [
+            {
+                id: 5,
+                title: 'TEXT FORMATTING!',
+                date: '2025-10-13',
+                text: `This is **bold** and this is *italic*!
+                ~~This is crossed out~~
+                ||This is a secret spoiler - click to reveal!||
+                [color=#ff6347]This text is red![/color]
+                [rainbow]This is rainbow text![/rainbow]
+                
+                
+                sooo, yup — I implemented text formatting finally (wowwwwww im not lazy for once ^^); I also added a music gallery section which I was inspired by some other sites and I think it looks pretty cool! It's a fun little unique thing of mine :-3 :pumpkin_cat:
+                I still do need to add link embedding thingy though but other than that I'm all good! *Andd* **it won't be very hard ૮・ᴥ・ა**
+                
+                that's all for today! I'm really tired lol otherwise I'd write about what I actually did today ||(tho it wasn't much, mostly just school — guess I did slightly alter my hyprland rice tho and fixed my bootmanager having an issue lol, I had to edit the grub entry for arch and then get onto a command line aaaaaaaa)||
+                
+                goodnight, and [rainbow]happy halloween![/rainbow]`,
+            },
             {
                 id: 4,
                 title: '22 days to halloween',
