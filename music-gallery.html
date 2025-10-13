@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Gallery</title>
+    <link rel="icon" href="https://assets.vivwebz.net/vivwebz/favicon.gif" type="image/gif">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://db.onlinewebfonts.com/c/a65eadc3de4c26265833b1b891033c5f?family=MS+Sans+Serif+1" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="music-gallery.css">
+</head>
+<body>
+    <div class="gallery-view" id="galleryView">
+        <div class="album-grid" id="albumGrid"></div>
+    </div>
+
+    <div class="player-view" id="playerView">
+        <button class="back-button" id="backButton">
+            <i class="fas fa-arrow-left"></i> Back to Gallery
+            <div class="tooltip">Return to albums</div>
+        </button>
+        
+        <div class="player-container">
+            <h1 class="album-title" id="albumTitle"></h1>
+            
+            <div class="player-controls">
+                <div class="player-disk-container">
+                    <img src="https://assets.vivwebz.net/vivwebz/vinyl.png" class="player-disk-default" id="playerDiskDefault">
+                    <img src="https://assets.vivwebz.net/vivwebz/vinyl.png" class="player-disk-custom" id="playerDiskCustom">
+                </div>
+                
+                <div class="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <input type="range" min="0" max="100" value="100" class="volume-slider" id="volumeSlider">
+                    <span class="volume-value" id="volumeValue">100%</span>
+                </div>
+            </div>
+            
+            <div class="song-list" id="songList"></div>
+        </div>
+    </div>
+
+    <script>
+        // Album data
+        const albums = [
+            {
+                id: 1,
+                title: 'My songs lol',
+                cover: 'https://assets.vivwebz.net/vivwebz/album.png',
+                songs: [
+                    {
+                        title: 'Rely',
+                        artist: 'RUSTIC! (me)',
+                        url: 'https://assets.vivwebz.net/rely.mp3',
+                        icon: 'https://assets.vivwebz.net/vinylvee.png'
+                    },
+                    {
+                        title: 'woa (snippet/practice)',
+                        artist: 'RUSTIC! (me)',
+                        url: 'https://assets.vivwebz.net/vivwebz/woa.wav',
+                        icon: 'https://assets.vivwebz.net/vinylvee.png'
+                    },
+                    {
+                        title: 'random practice song',
+                        artist: 'RUSTIC! (me)',
+                        url: 'https://assets.vivwebz.net/wowa2.wav',
+                        icon: 'https://assets.vivwebz.net/vinylvee.png'
+                    }
+                ]
+            },
+            {
+                id: 2,
+                title: 'Peak',
+                cover: 'https://assets.vivwebz.net/vivwebz/favourites.jpg',
+                songs: [
+                    {
+                        title: 'Want You Gone',
+                        artist: 'Portal 2 OST (Valve)',
+                        url: 'https://assets.vivwebz.net/vivwebz/wantyougone_portal.mp3',
+                        icon: 'https://assets.vivwebz.net/vivwebz/vinyl.png'
+                    },
+                    {
+                        title: 'Imposter Syndrome',
+                        artist: 'Sidney Gish',
+                        url: 'https://assets.vivwebz.net/imposter-syndrome_sidney-gish.mp3',
+                        icon: 'https://assets.vivwebz.net/vivwebz/vinyl.png'
+                    },
+                    {
+                        title: 'New Chapter',
+                        artist: 'ISSBROKIE!',
+                        url: 'https://assets.vivwebz.net/vivwebz/newchapter.mp3',
+                        icon: 'https://assets.vivwebz.net/vivwebz/vinyl.png'
+                    }
+                ]
+            }
+        ];
+    </script>
+    <script src="music-gallery.js"></script>
+</body>
+</html>
