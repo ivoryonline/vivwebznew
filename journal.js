@@ -241,14 +241,16 @@ function escapeHtml(value) {
 }
 
 function renderTextInline(rawText, entryId) {
-    const tokenRegex = /(\[video\s+[^\]]+\])|(\[img\s+[^\]]+\])|(\[music\s+[^\]]+\])|:([a-z0-9_]+):/gi;
+    const tokenRegex = /(\[video\s+[^\]]+\])|(\[img\s+[^\]]+\])|(\[music\s+[^\]]+\])|:([a-z0-9_]+):|(\*\*([^\*]+)\*\*)|(\*([^\*]+)\*)|(\~\~([^\~]+)\~\~)|(\|\|([^\|]+)\|\|)|(\[color=([^\]]+)\]([^\[]+)\[\/color\])|(\[rainbow\]([^\[]+)\[\/rainbow\])/gi;
     let result = '';
     let last = 0;
     let musicIndex = 0;
     let m;
+    
     while ((m = tokenRegex.exec(rawText)) !== null) {
         result += escapeHtml(rawText.slice(last, m.index));
-        const [full, videoTok, imgTok, musicTok, emojiName] = m;
+        const [full, videoTok, imgTok, musicTok, emojiName, boldFull, boldText, italicFull, italicText, strikeFull, strikeText, spoilerFull, spoilerText, colorFull, colorName, colorText, rainbowFull, rainbowText] = m;
+        
         if (videoTok) {
             const parts = /\[video\s+([^\]\s]+)(?:\s+logo:([^\]\s]+))?(?:\s+poster:([^\]\s]+))?\]/i.exec(videoTok);
             const videoUrl = parts && parts[1] ? parts[1].trim() : '';
@@ -282,6 +284,26 @@ function renderTextInline(rawText, entryId) {
             } else {
                 result += escapeHtml(full);
             }
+        } else if (boldFull) {
+            result += `<strong>${escapeHtml(boldText)}</strong>`;
+        } else if (italicFull) {
+            result += `<em>${escapeHtml(italicText)}</em>`;
+        } else if (strikeFull) {
+            result += `<del>${escapeHtml(strikeText)}</del>`;
+        } else if (spoilerFull) {
+            const spoilerId = `spoiler-${entryId}-${Math.random().toString(36).substr(2, 9)}`;
+            result += `<span class="spoiler" id="${spoilerId}" onclick="this.classList.toggle('revealed')">${escapeHtml(spoilerText)}</span>`;
+        } else if (colorFull) {
+            result += `<span style="color: ${escapeHtml(colorName)}; font-weight: bold;">${escapeHtml(colorText)}</span>`;
+        } else if (rainbowFull) {
+            const text = escapeHtml(rainbowText);
+            let rainbowHTML = '<span class="rainbow-text">';
+            for (let i = 0; i < text.length; i++) {
+                const hue = (i * 360 / text.length) % 360;
+                rainbowHTML += `<span style="color: hsl(${hue}, 100%, 50%)">${text[i]}</span>`;
+            }
+            rainbowHTML += '</span>';
+            result += rainbowHTML;
         }
         last = m.index + full.length;
     }
