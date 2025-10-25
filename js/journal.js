@@ -1,3 +1,6 @@
+// This is the general JS file for the main journal with all it's entries. Things such as emojis and the calender can be configured here.
+// Entries themselves are configured within the index.html (this is to avoid browser JS cache issues)
+
 // ==================== CONFIGURATION ====================
 const customEmojis = {
     sus: 'https://assets.vivwebz.net/vivwebz/sus.webp',
