@@ -1,3 +1,64 @@
+/* Dark Purple Discord-Style Theme */
+:root {
+    --color-falu-red: #8b7fbf;
+    --color-lion: #a99fd6;
+    --color-bistre: #1e1b2e;
+    --color-brown: #5d4d8d;
+    --color-peach: #2d2640;
+    --bg-body: #1e1b2e;
+    --bg-container: #2d2640;
+    --bg-sidebar: #252233;
+    --bg-entry: #36304a;
+    --bg-calendar: #36304a;
+    --bg-nav-menu: #36304a;
+    --bg-button-primary: #5d4d8d;
+    --bg-button-primary-hover: #6d5d9d;
+    --bg-button-secondary: #7a6bad;
+    --bg-button-secondary-hover: #8a7bbd;
+    --bg-username: #5d4d8d;
+    --bg-username-hover: #6d5d9d;
+    --bg-calendar-header: #5d4d8d;
+    --bg-calendar-header-hover: #6d5d9d;
+    --bg-calendar-weekday: #7a6bad;
+    --bg-calendar-day: #2d2640;
+    --bg-calendar-day-hover: #3d3650;
+    --bg-calendar-day-other: #252233;
+    --bg-calendar-day-entry: #7a6bad;
+    --bg-calendar-day-entry-hover: #8a7bbd;
+    --bg-season-indicator: #5d4d8d;
+    --bg-entry-header: #5d4d8d;
+    --bg-calendar-controls: #252233;
+    --bg-pagination: #252233;
+    --border-primary: #8b7fbf;
+    --border-secondary: #5d4d8d;
+    --border-today: #a99fd6;
+    --text-primary: #e8e4f8;
+    --text-secondary: #b0a8d6;
+    --text-on-dark: #e8e4f8;
+    --text-on-light: #e8e4f8;
+    --text-title: #e8e4f8;
+    --text-title-hover: #a99fd6;
+    --text-date: #b0a8d6;
+    --text-date-hover: #e8e4f8;
+    --text-other-month: #7a7490;
+    --icon-primary: #a99fd6;
+    --icon-secondary: #8b7fbf;
+    --icon-on-dark: #e8e4f8;
+    --icon-button: #e8e4f8;
+    --icon-button-hover: #ffffff;
+    --shadow-primary: rgba(30, 27, 46, 0.6);
+    --shadow-secondary: rgba(30, 27, 46, 0.4);
+    --shadow-light: rgba(30, 27, 46, 0.3);
+    --bg-tooltip: #5d4d8d;
+    --text-tooltip: #e8e4f8;
+    --border-tooltip: #a99fd6;
+    --bg-spoiler: #1e1b2e;
+    --text-spoiler-hint: #e8e4f8;
+    --bg-post-number: #7a6bad;
+    --bg-post-number-hover: #8a7bbd;
+    --bg-nav-button-gradient: rgba(122, 107, 173, 0.3);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,10 +66,10 @@
 }
 
 body {
-    background: #2a2a2a url('https://www.transparenttextures.com/patterns/stardust.png');
+    background: var(--bg-body) url('https://www.transparenttextures.com/patterns/stardust.png');
     font-family: "MS Sans Serif 1", 'Trebuchet MS', Arial, sans-serif;
     font-size: 12px;
-    color: #1a1a1a;
+    color: var(--text-primary);
     padding: 40px 20px;
     min-height: 100vh;
     -webkit-user-select: none;
@@ -17,7 +78,7 @@ body {
 }
 
 .page-wrapper {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     position: relative;
 }
@@ -59,7 +120,7 @@ body {
 .header-image {
     max-width: 600px;
     height: auto;
-    filter: drop-shadow(3px 3px 0px #000);
+    filter: drop-shadow(3px 3px 0px var(--border-primary));
     animation: slideDown 0.6s ease-out;
     transition: transform 0.3s ease, filter 0.3s ease;
     cursor: pointer;
@@ -67,7 +128,7 @@ body {
 
 .header-image:hover {
     transform: scale(1.05) rotate(-1deg);
-    filter: drop-shadow(5px 5px 0px #000);
+    filter: drop-shadow(5px 5px 0px var(--border-primary));
 }
 
 @keyframes slideDown {
@@ -76,9 +137,9 @@ body {
 }
 
 .container {
-    background: #f5f5dc;
-    border: 4px solid #3a3a3a;
-    box-shadow: 8px 8px 0px rgba(0,0,0,0.3);
+    background: var(--bg-container);
+    border: 4px solid var(--border-primary);
+    box-shadow: 8px 8px 0px var(--shadow-primary);
     position: relative;
     animation: fadeIn 0.8s ease-out;
 }
@@ -94,15 +155,15 @@ body {
 
 .sidebar {
     width: 250px;
-    background: #e8e8d0;
-    border-right: 3px solid #3a3a3a;
+    background: var(--bg-sidebar);
+    border-right: 3px solid var(--border-primary);
     padding: 20px;
 }
 
 .profile-pic {
     width: 200px;
     height: 200px;
-    border: 4px solid #3a3a3a;
+    border: 4px solid var(--border-primary);
     margin-bottom: 15px;
     object-fit: cover;
     transition: transform 0.3s ease;
@@ -117,12 +178,12 @@ body {
 .username {
     font-size: 16px;
     font-weight: bold;
-    color: #1a1a1a;
+    color: var(--text-primary);
     margin-bottom: 20px;
     text-align: center;
-    background: #d4d4bc;
+    background: var(--bg-username);
     padding: 10px;
-    border: 2px solid #3a3a3a;
+    border: 2px solid var(--border-primary);
     transition: all 0.3s ease;
     animation: fadeInUp 0.5s ease-out 0.2s both;
     cursor: pointer;
@@ -130,8 +191,8 @@ body {
 
 .username:hover {
     transform: translateY(-3px);
-    box-shadow: 3px 3px 0px rgba(0,0,0,0.2);
-    background: #e0e0c8;
+    box-shadow: 3px 3px 0px var(--shadow-secondary);
+    background: var(--bg-username-hover);
 }
 
 @keyframes fadeInUp {
@@ -147,12 +208,12 @@ body {
 
 .username i {
     margin-right: 5px;
-    color: #8b7355;
+    color: var(--icon-primary);
 }
 
 .calendar-widget {
-    background: #fff;
-    border: 3px solid #3a3a3a;
+    background: var(--bg-calendar);
+    border: 3px solid var(--border-primary);
     padding: 15px;
     margin-top: 20px;
     animation: fadeInUp 0.5s ease-out 0.3s both;
@@ -163,23 +224,23 @@ body {
     margin-bottom: 15px;
     font-weight: bold;
     font-size: 14px;
-    color: #1a1a1a;
-    background: #d4d4bc;
+    color: var(--text-primary);
+    background: var(--bg-calendar-header);
     padding: 8px;
-    border: 2px solid #3a3a3a;
+    border: 2px solid var(--border-primary);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .calendar-header:hover {
     transform: translateY(-2px);
-    box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-    background: #e0e0c8;
+    box-shadow: 2px 2px 0px var(--shadow-secondary);
+    background: var(--bg-calendar-header-hover);
 }
 
 .calendar-header i {
     margin-right: 8px;
-    color: #8b7355;
+    color: var(--icon-primary);
     transition: transform 0.3s ease;
 }
 
@@ -193,13 +254,13 @@ body {
     align-items: center;
     margin-bottom: 10px;
     padding: 5px;
-    background: #e8e8d0;
-    border: 2px solid #3a3a3a;
+    background: var(--bg-calendar-controls);
+    border: 2px solid var(--border-primary);
 }
 
 .calendar-controls button {
-    background: #d4d4bc;
-    border: 2px solid #3a3a3a;
+    background: var(--bg-button-primary);
+    border: 2px solid var(--border-primary);
     padding: 4px 10px;
     cursor: pointer;
     font-size: 11px;
@@ -208,7 +269,7 @@ body {
 }
 
 .calendar-controls button:hover {
-    background: #c4c4ac;
+    background: var(--bg-button-primary-hover);
     transform: translateY(-2px);
 }
 
@@ -217,7 +278,7 @@ body {
 }
 
 .calendar-controls button i {
-    color: #8b7355;
+    color: var(--icon-button);
 }
 
 .calendar-month-year {
@@ -237,8 +298,8 @@ body {
     font-weight: bold;
     font-size: 10px;
     padding: 5px 2px;
-    background: #d4d4bc;
-    border: 1px solid #3a3a3a;
+    background: var(--bg-calendar-weekday);
+    border: 1px solid var(--border-primary);
 }
 
 .calendar-days {
@@ -249,47 +310,47 @@ body {
 
 .calendar-day {
     aspect-ratio: 1;
-    background: #f5f5dc;
+    background: var(--bg-calendar-day);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     font-size: 11px;
-    border: 1px solid #3a3a3a;
+    border: 1px solid var(--border-primary);
     transition: all 0.2s ease;
     position: relative;
 }
 
 .calendar-day:hover {
-    background: #e8e8d0;
+    background: var(--bg-calendar-day-hover);
     transform: scale(1.15);
     z-index: 5;
 }
 
 .calendar-day.has-entry {
-    background: #8b7355;
-    color: #fff;
+    background: var(--bg-calendar-day-entry);
+    color: var(--text-on-dark);
     font-weight: bold;
 }
 
 .calendar-day.has-entry:hover {
-    background: #6d5a44;
+    background: var(--bg-calendar-day-entry-hover);
 }
 
 .calendar-day.other-month {
-    color: #999;
-    background: #e8e8d0;
+    color: var(--text-other-month);
+    background: var(--bg-calendar-day-other);
 }
 
 .calendar-day.today {
-    border: 2px solid #ff6347;
+    border: 2px solid var(--border-today);
     font-weight: bold;
 }
 
 .tooltip {
     position: absolute;
-    background: #1a1a1a;
-    color: #fff;
+    background: var(--bg-tooltip);
+    color: var(--text-tooltip);
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 11px;
@@ -301,7 +362,7 @@ body {
     bottom: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(-5px) scale(0.98);
-    border: 2px solid #3a3a3a;
+    border: 2px solid var(--border-tooltip);
 }
 
 .calendar-day:hover .tooltip {
@@ -342,20 +403,20 @@ body {
     text-align: center;
     margin-top: 10px;
     padding: 5px;
-    background: #d4d4bc;
-    border: 2px solid #3a3a3a;
+    background: var(--bg-season-indicator);
+    border: 2px solid var(--border-primary);
     font-size: 11px;
     font-style: italic;
 }
 
 .season-indicator i {
     margin-right: 5px;
-    color: #8b7355;
+    color: var(--icon-primary);
 }
 
 .nav-menu {
-    background: #fff;
-    border: 3px solid #3a3a3a;
+    background: var(--bg-nav-menu);
+    border: 3px solid var(--border-primary);
     padding: 15px;
     margin-top: 20px;
     animation: fadeInUp 0.5s ease-out 0.4s both;
@@ -366,23 +427,23 @@ body {
     margin-bottom: 12px;
     font-weight: bold;
     font-size: 14px;
-    color: #1a1a1a;
-    background: #d4d4bc;
+    color: var(--text-primary);
+    background: var(--bg-button-primary);
     padding: 8px;
-    border: 2px solid #3a3a3a;
+    border: 2px solid var(--border-primary);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .nav-header:hover {
     transform: translateY(-2px);
-    box-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-    background: #e0e0c8;
+    box-shadow: 2px 2px 0px var(--shadow-secondary);
+    background: var(--bg-button-primary-hover);
 }
 
 .nav-header i {
     margin-right: 8px;
-    color: #8b7355;
+    color: var(--icon-primary);
     transition: transform 0.3s ease;
 }
 
@@ -392,13 +453,14 @@ body {
 
 .nav-button {
     width: 100%;
-    background: #d4d4bc;
-    border: 2px solid #3a3a3a;
+    background: var(--bg-button-primary);
+    border: 2px solid var(--border-primary);
     padding: 10px 12px;
     margin-bottom: 8px;
     cursor: pointer;
     font-size: 12px;
     font-weight: bold;
+    color: var(--text-primary);
     display: flex;
     align-items: center;
     gap: 10px;
@@ -414,7 +476,7 @@ body {
     top: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 115, 85, 0.3), transparent);
+    background: linear-gradient(90deg, transparent, var(--bg-nav-button-gradient), transparent);
     transition: left 0.5s ease;
 }
 
@@ -423,25 +485,25 @@ body {
 }
 
 .nav-button:hover {
-    background: #8b7355;
-    color: #fff;
+    background: var(--bg-button-secondary);
+    color: var(--text-on-dark);
     transform: translateX(8px) scale(1.05);
-    box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+    box-shadow: 4px 4px 0px var(--shadow-primary);
 }
 
 .nav-button:active {
     transform: translateX(4px) scale(1.02);
-    box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+    box-shadow: 2px 2px 0px var(--shadow-primary);
 }
 
 .nav-button i {
-    color: #8b7355;
+    color: var(--icon-button);
     font-size: 14px;
     transition: all 0.3s ease;
 }
 
 .nav-button:hover i {
-    color: #fff;
+    color: var(--icon-button-hover);
     transform: rotate(360deg) scale(1.2);
 }
 
@@ -452,7 +514,7 @@ body {
 .entries {
     flex: 1;
     padding: 25px;
-    background: #f5f5dc;
+    background: var(--bg-container);
 }
 
 .pagination {
@@ -462,14 +524,14 @@ body {
     gap: 10px;
     margin-top: 20px;
     padding: 15px;
-    background: #e8e8d0;
-    border: 3px solid #3a3a3a;
+    background: var(--bg-pagination);
+    border: 3px solid var(--border-primary);
     animation: fadeInUp 0.5s ease-out 0.3s both;
 }
 
 .pagination button {
-    background: #d4d4bc;
-    border: 2px solid #3a3a3a;
+    background: var(--bg-button-primary);
+    border: 2px solid var(--border-primary);
     padding: 8px 15px;
     cursor: pointer;
     font-size: 12px;
@@ -478,7 +540,7 @@ body {
 }
 
 .pagination button:hover:not(:disabled) {
-    background: #c4c4ac;
+    background: var(--bg-button-primary-hover);
     transform: translateY(-2px);
 }
 
@@ -494,24 +556,24 @@ body {
 .pagination span {
     font-weight: bold;
     padding: 8px 15px;
-    background: #8b7355;
-    color: #fff;
-    border: 2px solid #3a3a3a;
+    background: var(--bg-button-secondary);
+    color: var(--text-on-dark);
+    border: 2px solid var(--border-primary);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .pagination span:hover {
     transform: scale(1.05);
-    background: #9b8365;
+    background: var(--bg-button-secondary-hover);
 }
 
 .entry {
-    background: #fff;
-    border: 3px solid #3a3a3a;
+    background: var(--bg-entry);
+    border: 3px solid var(--border-primary);
     margin-bottom: 25px;
     padding: 0;
-    box-shadow: 5px 5px 0px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 0px var(--shadow-secondary);
     transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -546,9 +608,9 @@ body {
 }
 
 .entry-header {
-    background: #d4d4bc;
+    background: var(--bg-entry-header);
     padding: 12px 15px;
-    border-bottom: 3px solid #3a3a3a;
+    border-bottom: 3px solid var(--border-primary);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -561,7 +623,7 @@ body {
 .entry-title {
     font-size: 15px;
     font-weight: bold;
-    color: #1a1a1a;
+    color: var(--text-title);
     margin-bottom: 5px;
     transition: all 0.3s ease;
     cursor: pointer;
@@ -569,12 +631,12 @@ body {
 
 .entry-title:hover {
     transform: translateX(5px);
-    color: #3a3a3a;
+    color: var(--text-title-hover);
 }
 
 .entry-title i {
     margin-right: 5px;
-    color: #8b7355;
+    color: var(--icon-primary);
     transition: transform 0.3s ease;
 }
 
@@ -584,19 +646,19 @@ body {
 
 .entry-date {
     font-size: 11px;
-    color: #555;
+    color: var(--text-date);
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
 .entry-date:hover {
     transform: translateX(5px);
-    color: #333;
+    color: var(--text-date-hover);
 }
 
 .entry-date i {
     margin-right: 5px;
-    color: #8b7355;
+    color: var(--icon-primary);
     transition: transform 0.3s ease;
 }
 
@@ -605,10 +667,10 @@ body {
 }
 
 .entry-post-number {
-    background: #8b7355;
-    color: #fff;
+    background: var(--bg-post-number);
+    color: var(--text-on-dark);
     padding: 5px 10px;
-    border: 2px solid #3a3a3a;
+    border: 2px solid var(--border-primary);
     font-weight: bold;
     font-size: 11px;
     position: relative;
@@ -618,8 +680,8 @@ body {
 
 .entry-post-number:hover {
     transform: scale(1.1) rotate(-3deg);
-    background: #9b8365;
-    box-shadow: 3px 3px 0px rgba(0,0,0,0.3);
+    background: var(--bg-post-number-hover);
+    box-shadow: 3px 3px 0px var(--shadow-primary);
 }
 
 .entry-post-number i {
@@ -653,7 +715,7 @@ body {
 .entry-text {
     line-height: 1.7;
     margin-bottom: 15px;
-    color: #1a1a1a;
+    color: var(--text-primary);
     -webkit-user-select: text;
     -ms-user-select: text;
     user-select: text;
@@ -661,7 +723,7 @@ body {
 
 .entry-image {
     max-width: 100%;
-    border: 3px solid #3a3a3a;
+    border: 3px solid var(--border-primary);
     margin-top: 15px;
     display: block;
     transition: transform 0.3s ease;
@@ -674,7 +736,7 @@ body {
 .entry-inline-image {
     max-width: 60%;
     height: auto;
-    border: 3px solid #3a3a3a;
+    border: 3px solid var(--border-primary);
     margin: 8px 0;
     display: block;
     transition: transform 0.3s ease;
@@ -697,7 +759,7 @@ body {
 }
 
 .fa-custom {
-    color: #8b7355;
+    color: var(--bg-button-secondary);
     transition: transform 0.2s ease;
 }
 
@@ -706,7 +768,7 @@ body {
 }
 
 .spoiler {
-    background: #1a1a1a;
+    background: var(--bg-spoiler);
     color: transparent;
     padding: 2px 4px;
     cursor: pointer;
@@ -722,7 +784,7 @@ body {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: #fff;
+    color: var(--text-spoiler-hint);
     font-size: 10px;
     opacity: 0;
     transition: opacity 0.2s ease;
